@@ -215,7 +215,7 @@ impl TestRequest {
         F: ?Sized + Serialize,
     {
         let body_text =
-            serde_urlencoded::to_string(body).expect("It should serialize the content into a Form");
+            serde_html_form::to_string(body).expect("It should serialize the content into a Form");
 
         self.bytes(body_text.into())
             .content_type(mime::APPLICATION_WWW_FORM_URLENCODED.essence_str())

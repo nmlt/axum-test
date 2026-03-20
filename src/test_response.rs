@@ -431,7 +431,7 @@ impl TestResponse {
     where
         T: DeserializeOwned,
     {
-        serde_urlencoded::from_bytes::<T>(self.as_bytes())
+        serde_html_form::from_bytes::<T>(self.as_bytes())
             .error_response_with_body("Failed to deserialize Form response", self)
     }
 

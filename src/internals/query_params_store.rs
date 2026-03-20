@@ -20,7 +20,7 @@ impl QueryParamsStore {
     where
         V: Serialize,
     {
-        let value_raw = ::serde_urlencoded::to_string(query_params)?;
+        let value_raw = ::serde_html_form::to_string(query_params)?;
         self.add_raw(value_raw);
 
         Ok(())
